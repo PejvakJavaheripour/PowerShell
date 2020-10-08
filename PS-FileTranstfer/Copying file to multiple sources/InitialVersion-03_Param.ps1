@@ -1,7 +1,7 @@
 param
 (
     # A list of servers
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [string]
     $ServerListPath = ".\ServerList.txt",
 

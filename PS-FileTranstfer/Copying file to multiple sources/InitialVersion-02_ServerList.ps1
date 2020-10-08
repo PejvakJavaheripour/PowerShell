@@ -1,5 +1,6 @@
 $File = "D:\SourceFile\ConfigFile.txt"
 $Dest = "\\$Server\D$\APP01\ConfigFile"
+
 $ServerList = Get-Content -Path ".\ServerList.txt"
 
 foreach($Server in $ServerList)

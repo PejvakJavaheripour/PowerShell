@@ -23,12 +23,12 @@ foreach($Server in $ServerList)
   $Destination = "\\$Server" + $Dest
   if(Test-Path -Path $Destination)
   {
-    $FileDate = (Get-ChildItem "$dest\ConfigFile.txt").LastWriteTime
+    $FileDate = (Get-ChildItem "$Destination\ConfigFile.txt").LastWriteTime
     Write-Output $FileDate
     
     Copy-Item -Path $File -Destination $Destination -Force
 
-    $FileDate = (Get-ChildItem "$dest\ConfigFile.txt").LastWriteTime
+    $FileDate = (Get-ChildItem "$Destination\ConfigFile.txt").LastWriteTime
     Write-Output $FileDate
   }
 }

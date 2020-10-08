@@ -1,7 +1,7 @@
 param
 (
     # A list of servers
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [string]
     $ServerListPath = ".\ServerList.txt",
 
@@ -25,7 +25,9 @@ foreach($Server in $ServerList)
   {
     try 
     {
-      $FileDate = (Get-ChildItem "$dest\ConfigFile.txt" -ErrorAction Stop).LastWriteTime      
+      $FileDate = (Get-ChildItem "$Destination\ConfigFile.txt" -ErrorAction Stop).LastWriteTime
+      Write-Output $FileDate
+
       $FileDateSource = (Get-ChildItem $file -ErrorAction Stop).LastWriteTime
 
       if($FileDate -lt $FileDateSource)
@@ -37,7 +39,7 @@ foreach($Server in $ServerList)
       {
         Write-Output "The destination file on $Server is more recent!"  
       }
-
+ 
     }
     catch [System.Management.Automation.ItemNotFoundException]
     {
